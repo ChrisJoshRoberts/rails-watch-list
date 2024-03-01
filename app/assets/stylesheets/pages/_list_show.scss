@@ -7,3 +7,11 @@
 .movies-list {
   overflow-y: scroll;
 }
+.movie-card {
+  margin: 16px;
+}
+.movie-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: scroll;
+}

@@ -1,20 +1,21 @@
-<h1><strong>Movie lists</strong></h1>
-<h6>create new list</h6>
+<div class="container">
+  <h1><strong>Movie lists</strong></h1>
+  <h6>create new list</h6>
 
-<%= simple_form_for(@list) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for(@list) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+    </div>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 
-<div class="list-card">
+  <div class="list-card">
     <% @lists.each do |list| %>
       <div class="card-item">
         <p><%= list.name %></p>
         <%= link_to "Add movie to this list", list_path(list), class: 'btn btn-info' %>
-
-        <%= button_to "Destroy this list", list, method: :destory %>
+        <%# <%= button_to "Destroy this list", list, method: :destory %>
       </div>
     <% end %>
+  </div>
 </div>

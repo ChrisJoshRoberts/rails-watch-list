@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %w(show destroy)
 
   def index
     @lists = List.all
@@ -17,23 +16,15 @@ class ListsController < ApplicationController
     end
   end
 
-  def destroy
-    raise
-    @list.destroy
-    redirect_to root_path
-  end
-
   def show
-    @movies = Movie.all
+    @list = List.find(params[:id])
+    @bookmarks = Bookmark.all
+    @bookmark = Bookmark.new
   end
 
   private
 
   def list_params
     params.require(:list).permit(:name)
-  end
-
-  def set_list
-    @list = List.find(params[:id])
   end
 end

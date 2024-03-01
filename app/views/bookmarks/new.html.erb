@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Add movies here:</h1>
+
+  <div class="movies-list-container">
+    <div class="movie-scroll">
+      <% @movies.each do | movie | %>
+        <%= image_tag(movie.poster_url, width: "200px", class: "m-2") %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= simple_form_for([@list, @bookmark]) do |f| %>
+      <%= f.input :movie_id, as: :select, collection: Movie.all.map { |m| [m.title, m.id] } %>
+      <div class="form-inputs">
+        <%= f.input :comment %>
+      </div>
+      <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back", root_path, class: "btn btn-primary"%>
+</div>

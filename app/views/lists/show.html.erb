@@ -1,19 +1,21 @@
-<div id="header">
-  <h1><%= @list.name %></h1>
-  <h2>Select movies to add to this list:</h2>
-</div>
+<div class="container">
+    <div id="header">
+    <h1><%= @list.name %></h1>
+  </div>
+    <%= link_to "Add movies to list",  new_list_bookmark_path(@list, @bookmark), class: "btn btn-primary" %>
 
-<div class="d-flex m-3 movies-list">
-  <% @movies.each do |movie| %>
-    <div class="d-flex w-100">
-      <div class="movie-info">
-        <%= image_tag "#{movie.poster_url}", alt: "#{movie.title}", class: "m-3" , width: "200px"%>
-        <h4><%= movie.title %></h4>
-        <p><strong><%= movie.rating %></strong></p>
-        <input type="submit" value="Add + " class="btn btn-info" >
-      </div>
+    <div class="movie-card-container d-flex">
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="movie-card">
+          <%= image_tag(bookmark.movie.poster_url, width: "200px" ) %>
+          <p><%= bookmark.comment %></p>
+          <p><%= bookmark.movie.rating %></p>
+            <%= link_to 'Delete', bookmark_path(bookmark),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+      class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-<%= link_to "Back", root_path, class: "btn btn-primary"%>
+  <%= link_to "Back", root_path, class: "btn btn-primary"%>
+</div>
