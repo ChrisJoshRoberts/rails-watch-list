@@ -10,7 +10,7 @@
   </div>
 
   <%= simple_form_for([@list, @bookmark]) do |f| %>
-      <%= f.input :movie_id, as: :select, collection: Movie.all.map { |m| [m.title, m.id] } %>
+      <%= f.input :movie_id, as: :select, collection: @movies.map { |m| [m.title, m.id] } %>
       <div class="form-inputs">
         <%= f.input :comment %>
       </div>
