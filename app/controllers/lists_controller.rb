@@ -4,7 +4,6 @@ class ListsController < ApplicationController
     @lists = List.all
     @list = List.new
     @list.destroy
-
   end
 
   def create

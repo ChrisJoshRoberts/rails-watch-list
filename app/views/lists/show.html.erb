@@ -11,8 +11,8 @@
           <p><%= bookmark.comment %></p>
           <p><%= bookmark.movie.rating %></p>
             <%= link_to 'Delete', bookmark_path(bookmark),
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-      class: 'btn btn-secondary' %>
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: 'btn btn-danger' %>
         </div>
       <% end %>
     </div>
