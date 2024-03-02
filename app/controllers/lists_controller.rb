@@ -3,7 +3,6 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @list = List.new
-    @list.destroy
   end
 
   def create
@@ -19,6 +18,12 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @bookmarks = Bookmark.all
     @bookmark = Bookmark.new
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to list_path, status: :see_other
   end
 
   private

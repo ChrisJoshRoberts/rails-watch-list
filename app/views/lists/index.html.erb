@@ -14,7 +14,9 @@
       <div class="card-item">
         <p><%= list.name %></p>
         <%= link_to "Add movie to this list", list_path(list), class: 'btn btn-info' %>
-        <%# <%= button_to "Destroy this list", list, method: :destory %>
+        <%= link_to 'Delete', list_path(list),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+            class: 'btn btn-danger' %>
       </div>
     <% end %>
   </div>
