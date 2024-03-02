@@ -1,19 +1,20 @@
 <div class="container">
   <h1><strong>Movie lists</strong></h1>
   <h6>create new list</h6>
-
-  <%= simple_form_for(@list) do |f| %>
+  <div class="list-form-conatiner my-3">
+      <%= simple_form_for(@list) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
     </div>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
+  </div>
 
-  <div class="list-card">
+  <div class="list-card rounded">
     <% @lists.each do |list| %>
-      <div class="card-item">
+      <div class="card-item rounded">
         <p><%= list.name %></p>
-        <%= link_to "Add movie to this list", list_path(list), class: 'btn btn-info' %>
+        <%= link_to "View movies in this list", list_path(list), class: 'btn btn-info' %>
         <%= link_to 'Delete', list_path(list),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
             class: 'btn btn-danger' %>

@@ -15,3 +15,18 @@
   flex-wrap: nowrap;
   overflow-y: scroll;
 }
+.movie-card-container{
+  background-color: rgb(255, 255, 255);
+  overflow-y: scroll;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.card-info {
+  display: flex;
+  justify-content: space-around;
+  align-items:start;
+  margin-top: 16px;
+  width: 200px;
+}
+.card-text {
+  display: block;
+}

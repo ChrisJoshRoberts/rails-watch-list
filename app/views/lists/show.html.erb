@@ -2,20 +2,24 @@
     <div id="header">
     <h1><%= @list.name %></h1>
   </div>
-    <%= link_to "Add movies to list",  new_list_bookmark_path(@list, @bookmark), class: "btn btn-primary" %>
+    <%= link_to "Add movies to list",  new_list_bookmark_path(@list, @bookmark), class: "btn btn-primary my-3" %>
 
-    <div class="movie-card-container d-flex">
+    <div class="movie-card-container d-flex rounded">
       <% @list.bookmarks.each do |bookmark| %>
         <div class="movie-card">
-          <%= image_tag(bookmark.movie.poster_url, width: "200px" ) %>
-          <p><%= bookmark.comment %></p>
-          <p><%= bookmark.movie.rating %></p>
-            <%= link_to 'Delete', bookmark_path(bookmark),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: 'btn btn-danger' %>
+          <%= image_tag(bookmark.movie.poster_url, width: "200px", class: "rounded") %>
+          <div class="card-info">
+            <div class="card-text">
+              <p><%= bookmark.comment %></p>
+              <p><%= bookmark.movie.rating %></p>
+            </div>
+              <%= link_to 'Delete', bookmark_path(bookmark),
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+              class: 'btn btn-danger' %>
+          </div>
         </div>
       <% end %>
     </div>
 
-  <%= link_to "Back", root_path, class: "btn btn-primary"%>
+  <%= link_to "Back", root_path, class: "btn btn-primary my-3"%>
 </div>
