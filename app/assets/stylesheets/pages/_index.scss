@@ -1,14 +1,4 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "list_show";
-
-.card-item {
-  background-color: rgb(255, 255, 255);
-  margin: 16px;
-  padding: 8px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-.list-card {
-  background-color: rgb(253, 253, 253);
-  padding: 16px;
-}
+@import "card";

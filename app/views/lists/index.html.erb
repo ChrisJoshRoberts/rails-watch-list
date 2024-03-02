@@ -1,23 +1,27 @@
-<div class="container">
+<div class="my-container">
   <h1><strong>Movie lists</strong></h1>
   <h6>create new list</h6>
   <div class="list-form-conatiner my-3">
       <%= simple_form_for(@list) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
+      <%= f.input :photo, as: :file%>
     </div>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
   </div>
 
-  <div class="list-card rounded">
+  <div class="d-flex flex-wrap list-card rounded">
     <% @lists.each do |list| %>
-      <div class="card-item rounded">
-        <p><%= list.name %></p>
-        <%= link_to "View movies in this list", list_path(list), class: 'btn btn-info' %>
+      <div class="card-item">
+        <div class="card-img">
+          <%= cl_image_tag list.photo.key, class: "card-img"%>
+        </div>
+        <p class="m-3"><%= list.name %></p>
+        <%= link_to "View movies in this list", list_path(list), class: 'btn btn-info m-3' %>
         <%= link_to 'Delete', list_path(list),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: 'btn btn-danger' %>
+            class: 'btn btn-danger m-3' %>
       </div>
     <% end %>
   </div>
