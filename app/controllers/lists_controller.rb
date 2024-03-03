@@ -8,7 +8,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path, notice: "List was successfully created."
+      redirect_to root_path, notice: "List was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to list_path, status: :see_other
+    redirect_to root_path, status: :see_other
   end
 
   private
