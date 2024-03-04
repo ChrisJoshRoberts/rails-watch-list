@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :lists do
     resources :bookmarks, only: [:create, :new]
   end
-  resources :bookmarks , only: [:destroy]
+  resources :bookmarks , only: :destroy
 end
